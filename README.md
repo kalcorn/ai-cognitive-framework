@@ -66,27 +66,27 @@ This is the recommended approach for most teams.
     **General Recommendation: Claude CLI**
     Claude is generally recommended for its strong reasoning capabilities and ability to follow complex instructions, making it an excellent choice for everyday systematic problem-solving.
     ```bash
-    claude chat "Please read and internalize the instructions in the file `ai-cognitive-framework/CLAUDE.md`."
+    claude "Please read and internalize the instructions in the file `ai-cognitive-framework/CLAUDE.md`."
     ```
     *(This is the recommended method for Claude CLI users as it leverages the framework's auto-loading mechanism. The `CLAUDE.md` file will instruct the AI to then load the core framework content.)*
 
     **For Complex Problems: Gemini CLI**
     Gemini is particularly recommended for complex problems that require expert-level analysis, deep reasoning, and multi-modal understanding.
     ```bash
-    gemini chat "Please read and internalize the instructions in the file `ai-cognitive-framework/GEMINI.md`."
+    gemini "Please read and internalize the instructions in the file `ai-cognitive-framework/GEMINI.md`."
     ```
     *(This is the recommended method for Gemini CLI users as it leverages the framework's auto-loading mechanism. The `GEMINI.md` file will instruct the AI to then load the core framework content.)*
 
     **For Cursor CLI Users:**
     If you are using Cursor, you can instruct the AI to load its specific configuration rules.
     ```bash
-    cursor chat "Please read and internalize the content of the file `ai-cognitive-framework/.cursorrules`."
+    cursor "Please read and internalize the content of the file `ai-cognitive-framework/.cursorrules`."
     ```
 
     **For General AI Models (Core Rules):**
     You can directly instruct any AI model capable of reading local files to read the core framework rules.
     ```bash
-    [AI_CLI_COMMAND] chat "Please read and internalize the content of the file `ai-cognitive-framework/CORE-RULES.md`."
+    [AI_CLI_COMMAND] "Please read and internalize the content of the file `ai-cognitive-framework/CORE-RULES.md`."
     ```
 
 5.  **Experience the Difference:** Observe the significant improvement in the quality, structure, and effectiveness of the AI's responses.
