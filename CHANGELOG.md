@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.3] - 2025-08-05
+
+### Changed
+- Finalized README instructions for AI loading, removing automated priming section.
+- Added specific CLI command examples for natural language loading in README.
+
 ## [1.0.2] - 2025-08-05
 
 ### Changed
