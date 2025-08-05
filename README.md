@@ -61,7 +61,6 @@ This is the recommended approach for most teams.
 4.  **Loading the Framework into Your AI:**
     Once the framework files are in your project, you can instruct your AI to load and apply them.
 
-    ### A. Loading via Natural Language (In-CLI Chat)
     For AI models that are capable of reading local files (e.g., through tool-use, integrated environments, or specific CLI capabilities), you can instruct them directly in natural language within your chat session.
 
     **General Recommendation: Claude CLI**
@@ -69,42 +68,25 @@ This is the recommended approach for most teams.
     ```
     Please read and internalize the instructions in the file `ai-cognitive-framework/CLAUDE.md`.
     ```
-    *(This is the recommended method for Claude CLI users as it leverages the framework's auto-loading mechanism.)*
+    *(This is the recommended method for Claude CLI users as it leverages the framework's auto-loading mechanism. The `CLAUDE.md` file will instruct the AI to then load the core framework content.)*
 
     **For Complex Problems: Gemini CLI**
     Gemini is particularly recommended for complex problems that require expert-level analysis, deep reasoning, and multi-modal understanding.
     ```
     Please read and internalize the instructions in the file `ai-cognitive-framework/GEMINI.md`.
     ```
-    *(This is the recommended method for Gemini CLI users as it leverages the framework's auto-loading mechanism.)*
+    *(This is the recommended method for Gemini CLI users as it leverages the framework's auto-loading mechanism. The `GEMINI.md` file will instruct the AI to then load the core framework content.)*
 
-    **For general AI models capable of reading local files:**
-    You can directly instruct the AI to read the core framework files.
-    ```
-    Please read and internalize the content of the file `ai-cognitive-framework/CORE-RULES.md`.
-    ```
+    **For Cursor CLI Users:**
+    If you are using Cursor, you can instruct the AI to load its specific configuration rules.
     ```
     Please read and internalize the content of the file `ai-cognitive-framework/.cursorrules`.
     ```
 
-    ### B. Using CLI System Instructions (For Automated Priming)
-    This method passes the framework content as a system instruction, which is often the most effective way to prime an AI, especially for automated scripts or consistent priming.
-
-    **General Recommendation: Claude CLI**
-    ```bash
-    claude chat --system-prompt "$(cat ai-cognitive-framework/CORE-RULES.md)" "Your specific prompt here."
+    **For General AI Models (Core Rules):**
+    You can directly instruct any AI model capable of reading local files to read the core framework rules.
     ```
-    *(This command reads the content of `CORE-RULES.md` and passes it as a system prompt to the Claude model.)*
-
-    **For Complex Problems: Gemini CLI**
-    ```bash
-    gemini chat --system-instruction "$(cat ai-cognitive-framework/CORE-RULES.md)" "Your specific prompt here."
-    ```
-    *(This command reads the content of `CORE-RULES.md` and passes it as a system instruction to the Gemini model.)*
-
-    **For more advanced usage**, you can combine multiple framework files or specific sections. For instance, to include both core rules and a methodology:
-    ```bash
-    claude chat --system-prompt "$(cat ai-cognitive-framework/CORE-RULES.md) $(cat ai-cognitive-framework/METHODOLOGY.md)" "Your prompt."
+    Please read and internalize the content of the file `ai-cognitive-framework/CORE-RULES.md`.
     ```
 
 5.  **Experience the Difference:** Observe the significant improvement in the quality, structure, and effectiveness of the AI's responses.
