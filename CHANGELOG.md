@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.1] - 2025-08-05
+
+### Changed
+- Converted project to TypeScript.
+- Refined README instructions for AI loading, prioritizing Claude and Gemini.
+- Updated Jest configuration for TypeScript.
+
+### Fixed
+- Resolved various Jest/TypeScript configuration issues.
+
 ## [1.0.0] - 2025-08-05
 
 ### Added
