@@ -2,7 +2,7 @@
 
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
-import { initCommand } from '../src/commands/init.js';
+import { initCommand } from '../dist/commands/init.js';
 
 yargs(hideBin(process.argv))
   .command(initCommand)

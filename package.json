@@ -2,12 +2,14 @@
   "name": "ai-cognitive-framework",
   "version": "1.0.0",
   "description": "A system for transforming AI interactions from assumption-based guesswork to systematic, evidence-driven excellence.",
-  "main": "src/index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "bin": {
-    "aicf": "bin/aicf.js"
+    "aicf": "dist/bin/aicf.js"
   },
   "scripts": {
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "build": "tsc",
+    "test": "npm run build && node --experimental-vm-modules node_modules/jest/bin/jest.js dist",
     "lint": "eslint ."
   },
   "keywords": [
@@ -30,23 +32,26 @@
   },
   "homepage": "https://github.com/kalcorn/ai-cognitive-framework#readme",
   "files": [
-    "bin",
+    "dist",
     "framework",
-    "src/commands/init.js",
-    "src/index.js",
     "README.md",
     "LICENSE",
     "CHANGELOG.md"
   ],
   "type": "module",
   "jest": {
-    "transform": {}
+    "testEnvironment": "node"
   },
   "dependencies": {
     "yargs": "^17.7.2"
   },
   "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.39.0",
+    "@typescript-eslint/parser": "^8.39.0",
     "eslint": "^9.32.0",
-    "jest": "^30.0.5"
+    "jest": "^30.0.5",
+    "ts-jest": "^29.4.1",
+    "typescript": "^5.9.2"
   }
 }

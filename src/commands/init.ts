@@ -5,6 +5,10 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+interface InitArgs {
+  path: string;
+}
+
 export const initCommand = {
   command: 'init',
   describe: 'Initializes the project with the AI Cognitive Framework files',
@@ -16,7 +20,7 @@ export const initCommand = {
       default: 'ai-cognitive-framework'
     }
   },
-  handler: (argv) => {
+  handler: (argv: InitArgs) => {
     const destPath = path.resolve(argv.path);
     const sourcePath = path.resolve(__dirname, '../../framework');
 

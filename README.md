@@ -51,50 +51,60 @@ This is the recommended approach for most teams.
 
 1.  **Initialize:** Run `npx aicf init` in your project.
 2.  **Commit:** Add the newly created `ai-cognitive-framework/` directory to Git.
-3.  **Load:** When working with an AI, instruct it to first read and apply the principles from the relevant files in the framework directory (e.g., `CORE-RULES.md`, `METHODOLOGY.md`).
-4.  **Experience the Difference:** Observe the significant improvement in the quality, structure, and effectiveness of the AI's responses.
-
-## Updating the Framework
-
-To ensure stability and respect your potential customizations, the framework does not update in place. To update to a newer version:
-
-1.  Check for new versions: `npm outdated ai-cognitive-framework`
-2.  Run the `init` command with a temporary path:
+3.  **Install AI CLIs (Prerequisite):**
+    To interact with AI models from your terminal, you'll need their respective command-line interfaces. If you don't have them, install them globally:
     ```bash
-    npx aicf init --path ./new-framework-version
+    npm install -g @anthropic-ai/claude-cli @google/gemini-cli
     ```
-3.  Use your standard `diff` tool (or your IDE's source control view) to compare `new-framework-version/` with your existing `ai-cognitive-framework/` directory.
-4.  Manually merge any desired changes into your project's framework files.
+    *(Note: Ensure you have Node.js and npm installed. You may need to configure API keys for these CLIs separately.)*
 
-## Programmatic Usage
+4.  **Loading the Framework into Your AI:**
+    Once the framework files are in your project, you can instruct your AI to load and apply them.
 
-If you need to access the framework files programmatically from your own Node.js application (for example, to build tools on top of the framework), you should install it as a regular dependency:
+    ### A. Loading via Natural Language (In-CLI Chat)
+    For AI models that are capable of reading local files (e.g., through tool-use, integrated environments, or specific CLI capabilities), you can instruct them directly in natural language within your chat session.
 
-```bash
-npm install --save ai-cognitive-framework
-```
+    **General Recommendation: Claude CLI**
+    Claude is generally recommended for its strong reasoning capabilities and ability to follow complex instructions, making it an excellent choice for everyday systematic problem-solving.
+    ```
+    Please read and internalize the instructions in the file `ai-cognitive-framework/CLAUDE.md`.
+    ```
+    *(This is the recommended method for Claude CLI users as it leverages the framework's auto-loading mechanism.)*
 
-We provide a helper function to easily locate the framework files within `node_modules`:
+    **For Complex Problems: Gemini CLI**
+    Gemini is particularly recommended for complex problems that require expert-level analysis, deep reasoning, and multi-modal understanding.
+    ```
+    Please read and internalize the instructions in the file `ai-cognitive-framework/GEMINI.md`.
+    ```
+    *(This is the recommended method for Gemini CLI users as it leverages the framework's auto-loading mechanism.)*
 
-```javascript
-import { getFrameworkPath } from 'ai-cognitive-framework';
-import fs from 'fs';
-import path from 'path';
+    **For general AI models capable of reading local files:**
+    You can directly instruct the AI to read the core framework files.
+    ```
+    Please read and internalize the content of the file `ai-cognitive-framework/CORE-RULES.md`.
+    ```
+    ```
+    Please read and internalize the content of the file `ai-cognitive-framework/.cursorrules`.
+    ```
 
-// Get the absolute path to the framework directory
-const frameworkDir = getFrameworkPath();
+    ### B. Using CLI System Instructions (For Automated Priming)
+    This method passes the framework content as a system instruction, which is often the most effective way to prime an AI, especially for automated scripts or consistent priming.
 
-// Read the core rules
-const coreRulesPath = path.join(frameworkDir, 'CORE-RULES.md');
-const rules = fs.readFileSync(coreRulesPath, 'utf8');
+    **General Recommendation: Claude CLI**
+    ```bash
+    claude chat --system-prompt "$(cat ai-cognitive-framework/CORE-RULES.md)" "Your specific prompt here."
+    ```
+    *(This command reads the content of `CORE-RULES.md` and passes it as a system prompt to the Claude model.)*
 
-console.log(rules);
-```
+    **For Complex Problems: Gemini CLI**
+    ```bash
+    gemini chat --system-instruction "$(cat ai-cognitive-framework/CORE-RULES.md)" "Your specific prompt here."
+    ```
+    *(This command reads the content of `CORE-RULES.md` and passes it as a system instruction to the Gemini model.)*
 
-## Contributing
+    **For more advanced usage**, you can combine multiple framework files or specific sections. For instance, to include both core rules and a methodology:
+    ```bash
+    claude chat --system-prompt "$(cat ai-cognitive-framework/CORE-RULES.md) $(cat ai-cognitive-framework/METHODOLOGY.md)" "Your prompt."
+    ```
 
-Contributions are welcome! Please feel free to open an issue or submit a pull request.
-
-## License
-
-[MIT](LICENSE)
+5.  **Experience the Difference:** Observe the significant improvement in the quality, structure, and effectiveness of the AI's responses.
