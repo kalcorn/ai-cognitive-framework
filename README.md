@@ -64,29 +64,45 @@ This is the recommended approach for most teams.
     For AI models that are capable of reading local files (e.g., through tool-use, integrated environments, or specific CLI capabilities), you can instruct them directly in natural language within your chat session.
 
     **General Recommendation: Claude CLI**
-    Claude is generally recommended for its strong reasoning capabilities and ability to follow complex instructions, making it an excellent choice for everyday systematic problem-solving.
+    Start an interactive Claude session, then paste the following instruction:
     ```bash
-    claude "Please read and internalize the instructions in the file `ai-cognitive-framework/CLAUDE.md`."
+    claude
+    ```
+    Paste this into the Claude session:
+    ```
+    "Please read and internalize the instructions in the file `ai-cognitive-framework/CLAUDE.md`."
     ```
     *(This is the recommended method for Claude CLI users as it leverages the framework's auto-loading mechanism. The `CLAUDE.md` file will instruct the AI to then load the core framework content.)*
 
     **For Complex Problems: Gemini CLI**
-    Gemini is particularly recommended for complex problems that require expert-level analysis, deep reasoning, and multi-modal understanding.
+    Start an interactive Gemini session, then paste the following instruction:
     ```bash
-    gemini "Please read and internalize the instructions in the file `ai-cognitive-framework/GEMINI.md`."
+    gemini
+    ```
+    Paste this into the Gemini session:
+    ```
+    "Please read and internalize the instructions in the file `ai-cognitive-framework/GEMINI.md`."
     ```
     *(This is the recommended method for Gemini CLI users as it leverages the framework's auto-loading mechanism. The `GEMINI.md` file will instruct the AI to then load the core framework content.)*
 
     **For Cursor CLI Users:**
-    If you are using Cursor, you can instruct the AI to load its specific configuration rules.
+    Start an interactive Cursor session, then paste the following instruction:
     ```bash
-    cursor "Please read and internalize the content of the file `ai-cognitive-framework/.cursorrules`."
+    cursor
+    ```
+    Paste this into the Cursor session:
+    ```
+    "Please read and internalize the content of the file `ai-cognitive-framework/.cursorrules`."
     ```
 
     **For General AI Models (Core Rules):**
-    You can directly instruct any AI model capable of reading local files to read the core framework rules.
+    Start an interactive session with your AI CLI, then paste the following instruction:
     ```bash
-    [AI_CLI_COMMAND] "Please read and internalize the content of the file `ai-cognitive-framework/CORE-RULES.md`."
+    [AI_CLI_COMMAND]
+    ```
+    Paste this into the AI session:
+    ```
+    "Please read and internalize the content of the file `ai-cognitive-framework/CORE-RULES.md`."
     ```
 
 5.  **Experience the Difference:** Observe the significant improvement in the quality, structure, and effectiveness of the AI's responses.
