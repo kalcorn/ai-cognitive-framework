@@ -1,6 +1,6 @@
 {
   "name": "ai-cognitive-framework",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A system for transforming AI interactions from assumption-based guesswork to systematic, evidence-driven excellence.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
